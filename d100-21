@@ -1,0 +1,34 @@
+// Q41: Write a program to swap the first and last digit of a number.
+
+/*
+Sample Test Cases:
+Input 1:
+1234
+Output 1:
+4231
+
+Input 2:
+1001
+Output 2:
+1001
+
+*/
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int n, firstDigit, lastDigit, numDigits, middlePart, swappedNumber;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    lastDigit = n % 10;
+
+    numDigits = (n == 0) ? 1 : (int)log10(n) + 1;
+    firstDigit = n / (int)pow(10, numDigits - 1);
+
+    middlePart = (n % (int)pow(10, numDigits - 1)) / 10;
+
+    swappedNumber = lastDigit * (int)pow(10, numDigits - 1) + middlePart * 10 + firstDigit;
+
+    printf("%d\n", swappedNumber);
+    return 0;
+} 
