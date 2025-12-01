@@ -1,0 +1,33 @@
+Q99: Change the date format from dd/04/yyyy to dd-Apr-yyyy.
+
+/*
+Sample Test Cases:
+Input 1:
+15/04/2025
+Output 1:
+15-Apr-2025
+
+*/
+#include <stdio.h>
+
+int main() {
+    char date[20];
+    scanf("%s", date);
+    if(date[3] == '0' && date[4] == '4') {
+        date[3] = 'A';
+        date[4] = 'p';
+        date[5] = 'r';
+    }
+
+    // print in new format
+    for(int i = 0; i < 10; i++) {
+        if(i == 3) {
+            printf("-");
+            i += 2; 
+        } else {
+            printf("%c", date[i]);
+        }
+    }
+
+    return 0;
+}
